@@ -1,0 +1,41 @@
+﻿
+.main-chat-container {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    height: 500px;
+}
+.chat {
+    width: 300px;
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.5); 
+    border: 1px solid black;
+    margin: 5px;
+    border-radius: 10px;
+}
+.chat-content {
+    border-bottom: 1px black solid;
+    height: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 0 5px 0 0;
+}
+.chat-managing {
+    height: 45px;
+}
+.chat-managing button {
+    margin: 5px 8px 0 0 ;
+    padding: 5px 5px;
+    float: right;
+    height: 28px;
+}
+.chat-managing input{
+    margin: 3px;
+    margin: 5px 0 6px 5px;
+    padding: 5px;
+}
+.chat-text {
+    border: 1px solid white;
+    margin: 3px;
+    border-radius: 10px;
+    background: white;
+}

@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MainChat</h2>
+
+<section>
+    <div  class="main-chat-container">
+        <div id ="defaultChatId" class="chat">
+            <div class="chat-content">
+                <div class="chat-text" data-bind="foreach:messages">
+                    <div data-bind="text:$data"></div>
+                </div>
+            </div>
+            <div class="chat-managing">
+                <input type="text" placeholder="..." data-bind="value:message"/>
+                <button data-bind="click:sendMessage" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Отправить</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/SignalR/hubs"></script>
+    <script src="~/Scripts/SimpleChat.js"></script>
+    <script src="~/Scripts/knockout-3.4.0.js"></script>
+}
