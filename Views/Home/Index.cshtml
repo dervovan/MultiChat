@@ -6,7 +6,11 @@
 <h2>MainChat</h2>
 
 <section>
-    <div  class="main-chat-container">
+    <div class ="addChat">
+        <input id = "addChatName" type="text" />
+        <button id="addChatAction">Зайти в чат</button>
+    </div>
+    <div id="mainChatContainer" class="main-chat-container">
         <div id ="defaultChatId" class="chat">
             <div class="chat-content">
                 <div class="chat-text" data-bind="foreach:messages">

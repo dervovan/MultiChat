@@ -9,17 +9,10 @@ namespace MultiChat.Hubs
 {
     public class SimpleChatHub : Hub
     {
-        private string userName { get; set; }
-
-        public SimpleChatHub()
-        {
-            userName = MvcApplication.userByConnectionIds.FirstOrDefault(o => o.Key == Context.ConnectionId).Value;
-        }
-        
         public void SendMassage(string message, string groupName)
         {
-            Clients.Group(groupName).PostChatMessage(userName + " wrote: " + message);
-            ////Clients.All.PostChatMessage(userName + " wrote: " + message);
+            Clients.Group(groupName).PostChatMessage(GetCurrentUserName() + " wrote: " + message);
+            ////Clients.All.PostChatMessage(GetCurrentUserName() + " wrote: " + message);
         }
 
         public async Task JoinRoom(string roomName, string userName)
@@ -36,12 +29,19 @@ namespace MultiChat.Hubs
         {
             try
             {
-                Clients.Group(roomName).PostChatMessage(userName + " has left the room");
+                Clients.Group(roomName).PostChatMessage(GetCurrentUserName() + " has left the room");
                 await Groups.Remove(Context.ConnectionId, roomName);
             }
             catch (TaskCanceledException)
             {
             }
         }
+
+        private string GetCurrentUserName()
+        {
+            var user = MvcApplication.userByConnectionIds.FirstOrDefault(o => o.Key == Context.ConnectionId);
+            return user.Key == null ? string.Empty : user.Value;
+        }
+
     }
 }

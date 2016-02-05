@@ -14,7 +14,7 @@ namespace MultiChat
 
     public class MvcApplication : System.Web.HttpApplication
     {
-        public static Dictionary<string,string> userByConnectionIds = new Dictionary<string, string>()
+        public static Dictionary<string, string> userByConnectionIds = new Dictionary<string, string>();
 
         protected void Application_Start()
         {

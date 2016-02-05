@@ -11,10 +11,11 @@
     border: 1px solid black;
     margin: 5px;
     border-radius: 10px;
+    display: inline-block;
 }
 .chat-content {
     border-bottom: 1px black solid;
-    height: 300px;
+    min-height: 150px;
     max-height: 400px;
     overflow-y: auto;
     margin: 0 5px 0 0;
